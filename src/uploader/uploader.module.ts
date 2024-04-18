@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { UploaderController } from './uploader.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
     controllers: [UploaderController,],
