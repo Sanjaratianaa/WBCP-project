@@ -6,7 +6,7 @@ export class ReplicateController {
     constructor(private readonly replicateService: ReplicateService) {}
 
     @Post('generate-image')
-    async genareImage(@Body() prompt: string){
+    genareImage(@Body() prompt: string){
         this.replicateService.genareImage(prompt);
     }
 
