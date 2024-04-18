@@ -75,6 +75,7 @@ export class ReplicateService{
             }
           );
         console.log(output);
+        return output;
     }
 
     // styletts2
@@ -120,6 +121,7 @@ export class ReplicateService{
         }
         );
         console.log(output);
+        return output;
     }
 
     //salesforce/blip
@@ -136,6 +138,7 @@ export class ReplicateService{
         }
         );
         console.log(output);
+        return output;
     }
 
 
@@ -143,17 +146,18 @@ export class ReplicateService{
         const output = await replicate.run(
             "daanelson/yolox:ae0d70cebf6afb2ac4f5e4375eb599c178238b312c8325a9a114827ba869e3e9",
             {
-              input: {
-                nms: 0.3,
-                conf: 0.3,
-                tsize: 640,
-                model_name: "yolox-s",
-                input_image: imageUrl,
-                return_json: false
-              }
+                input: {
+                    nms: 0.3,
+                    conf: 0.3,
+                    tsize: 640,
+                    model_name: "yolox-s",
+                    input_image: imageUrl,
+                    return_json: false
+                }
             }
-          );
-          console.log(output);
+        );
+        console.log(output);
+        return output;
     }
 
     //google-research/maxim 
@@ -168,6 +172,7 @@ export class ReplicateService{
             }
         );
         console.log(output);
+        return output;
     }
 
     //pengdaqian2020/image-tagger
@@ -183,6 +188,7 @@ export class ReplicateService{
             }
         );
         console.log(output);
+        return output;
     }
 
     async humorRecognition(imageUrl: string){
@@ -195,6 +201,7 @@ export class ReplicateService{
             }
         );
         console.log(output);
+        return output;
     }
 
     async imageAnimation(imageUrl: string){
@@ -208,7 +215,7 @@ export class ReplicateService{
                 }
             }
         );
-//        console.log(output);
+        console.log(output);
         return output;
     }
 

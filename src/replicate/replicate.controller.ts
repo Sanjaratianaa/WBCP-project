@@ -17,24 +17,52 @@ export class ReplicateController {
 
     @Post('generate-music')
     generateMusic(@Body() prompt: string){
-       this.replicateService.generateMusic(prompt);
+        return this.replicateService.generateMusic(prompt);
     }
 
     @Post('text-to-sond')
     textToSond(@Body() prompt: string){
-        this.replicateService.textToSond(prompt);
+        return this.replicateService.textToSond(prompt);
     }
     
     @Post('text-to-image-cartoon')
     textToImageCartoon(@Body() prompt: string){
-        this.replicateService.textToImageCartoon(prompt);
+        return this.replicateService.textToImageCartoon(prompt);
     }
 
-
-    textToVideo(prompt: string){}
-
+    @Post('image-description')
     //salesforce/blip
     async imageDescription(@Body() prompt: string,@Body() question: string,@Body() imageUrl: string,@Body() caption: string){
-        
+        return this.replicateService.imageDescription(prompt, question, imageUrl, caption);
     }   
+
+    @Post('image-reconation')
+    imageReconation(@Body() prompt: string){
+        return this.replicateService.imageReconation(prompt);
+    }
+
+    @Post('image-processing')
+    imageProcessing(@Body() prompt: string){
+        return this.replicateService.imageProcessing(prompt);
+    }
+
+    @Post('image-taging')
+    imageTaging(@Body() prompt: string){
+        return this.replicateService.imageTaging(prompt);
+    }
+
+    @Post('humour-recognition')
+    humourRecognition(@Body() prompt: string){
+        return this.replicateService.humorRecognition(prompt);
+    }
+
+    @Post('image-animation')
+    imageAnimation(@Body() prompt: string){
+        return this.replicateService.imageAnimation(prompt);
+    }
+
+    @Post('text-to-video')
+    textToVideo(@Body() prompt: string){
+        return this.replicateService.textToVideo(prompt);
+    }
 }
