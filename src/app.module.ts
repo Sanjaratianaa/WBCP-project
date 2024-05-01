@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UploaderModule } from './uploader/uploader.module';
 import { ReplicateModule } from './replicate/replicate.module';
-import { HandlerGateWay } from 'src/socket/handler.gateway';
+import { HandlerGateWay } from './socket/handler.gateway';
 import { BrainShopModule } from './brain-shop/brain-shop.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 //import { UsersController } from './users/users.controller';
@@ -16,6 +16,9 @@ import { Users } from './users/Users';
 import { Standart } from './entities/Standart';
 import { StandartUser } from './entities/StandartUser';
 import { DetailsStandart } from './entities/DetailsStandart';
+import { AuthentificationController } from './authentification/authentification.controller';
+import { AuthentificationService } from './authentification/authentification.service';
+import { AuthentificationModule } from './authentification/authentification.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -24,13 +27,13 @@ import { DetailsStandart } from './entities/DetailsStandart';
       port: 5432, // Le port de votre base de données PostgreSQL par défaut est 5432
       username: 'your_username', // Le nom d'utilisateur de votre base de données
       password: 'your_password', // Le mot de passe de votre base de données
-      database: 'postgres', // Le nom de votre base de données
+      database: 'rencontre', // Le nom de votre base de données
       entities: [Users, Standart, StandartUser, DetailsStandart],
       synchronize: true, // Mettez à true pour synchroniser automatiquement les entités avec la base de données (utile pour le développement)
     }),
-    UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule
+    UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule, AuthentificationModule
   ],
-  controllers: [AppController, ],
-  providers: [AppService, HandlerGateWay, ],
+  controllers: [AppController, AuthentificationController, ],
+  providers: [AppService, HandlerGateWay, AuthentificationService, ],
 })
 export class AppModule {}

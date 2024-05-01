@@ -11,7 +11,24 @@ export class UsersService extends CrudService<Users>{
         super(repository);
     }
 
+    async getUser(id: string) : Promise<Users>{
+        let idUser = Number(id);
+        console.log(
+            await this.repository.findOne(
+                { where: {idUser} }
+            )
+        )
+        return await this.repository.findOne({
+            where: { idUser }
+        })
+    }
+    
+
     find(){
         return this.repository.find()
+    }
+
+    addUser(user: Users){
+        this.repository.save(user);
     }
 }

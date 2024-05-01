@@ -5,7 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { StandartUser } from "src/entities/StandartUser";
+import { StandartUser } from "../entities/StandartUser";
 @Index("users_pkey", ["idUser"], { unique: true })
 @Index("users_user_mail_key", ["userMail"], { unique: true })
 @Entity("users", { schema: "public" })
@@ -26,7 +26,7 @@ export class Users {
     name: "user_mail",
     nullable: true,
     unique: true,
-    length: 255,
+    length: 255,  
   })
   userMail: string | null;
 
