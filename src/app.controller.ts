@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Header, Redirect, Bind, Param } from '@nestjs/common';
-import { AppService } from '../services/app.service';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
@@ -35,7 +35,7 @@ export class AppController {
   
   @Get(':id')
   findOneOne(@Param('id') id: string): string {
-    return `This action returns a #${id} cat`;
+    return `This a  ction returns a #${id} cat`;
   }
 
   

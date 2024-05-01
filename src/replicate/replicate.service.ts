@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { replicate } from "./replicate";
+import { replicate } from "../replicate/replicate";
 
 @Injectable()
 export class ReplicateService{

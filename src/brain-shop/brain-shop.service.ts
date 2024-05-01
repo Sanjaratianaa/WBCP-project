@@ -5,11 +5,9 @@ import axios from 'axios';
 export class BrainShopService {
     async talk(prompt: string){
         let userId = 1111;
-        
-        "http://api.brainshop.ai/get?bid=181719&key=OKSMtzCJeg3gKnqs&uid=dsqdqs&msg=hello"
         const url = `http://api.brainshop.ai/get?bid=181719&key=${process.env.BRAIN_SHOP_API_KEY}&uid=${userId}&msg=${prompt}`;
-        console.log(url);
         let result = await axios.get(url);
         return result.data.cnt
     }   
 }
+    

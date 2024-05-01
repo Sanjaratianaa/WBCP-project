@@ -2,7 +2,7 @@ import { Controller, Get, Post, UploadedFile, UploadedFiles, UseInterceptors } f
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { extname } from 'path';
 import { diskStorage } from 'multer';
-import { multerOptions } from './multer.config';
+import { multerOptions } from '../uploader/multer.config';
 
 
 @Controller('files')

@@ -1,12 +1,14 @@
 import { MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets"
 
-@WebSocketGateway(8000, { 
+
+@WebSocketGateway(Number(process.env.SOCKET_PORT), { 
     cors: { 
         origin: "http://localhost:5173",
     } 
 },)
 export class HandlerGateWay{
     
+
     @WebSocketServer()
     server;
     
