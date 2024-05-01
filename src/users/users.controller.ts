@@ -6,12 +6,12 @@ import { UsersService } from './users.service';
 @Crud({entity: Users})
 @Controller('users')
 export class UsersController implements CrudController<Users>{
-    constructor(public readonly crudService: UsersService){
+    constructor(public readonly crudService: UsersService, public readonly userService: UsersService){
 
     }
 
     @Get('/fabien')
     getUsers(){
-        return "ok"
+        return this.userService.find()
     }
 }

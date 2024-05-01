@@ -6,7 +6,12 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService extends CrudService<Users>{
+    
     constructor(@InjectRepository(Users) repository: Repository<Users>) {
         super(repository);
+    }
+
+    find(){
+        return this.repository.find()
     }
 }
