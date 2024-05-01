@@ -8,7 +8,10 @@ import { BrainShopModule } from './brain-shop/brain-shop.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
-
+import { StandartModule } from './standart/standart.module';
+import { UsersModule } from './users/users.module';
+import { DetailsStandartModule } from './details-standart/details-standart.module';
+import { StandartUserModule } from './standart-user/standart-user.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -21,10 +24,9 @@ import { UsersService } from './users/users.service';
       entities: [__dirname + '/entities/*.{.ts,.js}'],
       synchronize: true, // Mettez à true pour synchroniser automatiquement les entités avec la base de données (utile pour le développement)
     }),
-    UploaderModule, ReplicateModule, BrainShopModule
+    UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule
   ],
-  controllers: [AppController, UsersController],
-  providers: [AppService, HandlerGateWay, UsersService],
+  controllers: [AppController, ],
+  providers: [AppService, HandlerGateWay, ],
 })
 export class AppModule {}
-  

@@ -1,4 +1,11 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
+import { StandartUser } from "./StandartUser";
 
 @Index("users_pkey", ["idUser"], { unique: true })
 @Index("users_user_mail_key", ["userMail"], { unique: true })
@@ -29,4 +36,7 @@ export class Users {
 
   @Column("date", { name: "birth" })
   birth: string;
+
+  @OneToMany(() => StandartUser, (standartUser) => standartUser.idUser)
+  standartUsers: StandartUser[];
 }
