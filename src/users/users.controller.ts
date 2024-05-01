@@ -34,6 +34,7 @@ export class UsersController implements CrudController<Users>{
                 data: await this.userService.login(user)
             };
         }catch(e){
+            console.log(e);
             return {
                 status: 500,
                 data: e.detail
