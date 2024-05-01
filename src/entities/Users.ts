@@ -37,6 +37,9 @@ export class Users {
   @Column("date", { name: "birth" })
   birth: string;
 
+  @Column("integer", { name: "sexe" })
+  sexe: number;
+
   @OneToMany(() => StandartUser, (standartUser) => standartUser.idUser)
   standartUsers: StandartUser[];
 }

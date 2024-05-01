@@ -8,8 +8,11 @@ create table users(
     user_password varchar(255) not null,
     user_mail varchar(255) unique,
     source_photo varchar(255) not null,
-    birth date not null
+    birth date not null,
+    sexe int not null,
 );  
+
+alter table users add column sexe int not null;
 
 create table standart(
     id_standart serial primary key,

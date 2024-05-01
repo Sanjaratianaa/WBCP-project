@@ -6,7 +6,7 @@
     "port": 5432,
     "username": "your_username",
     "password": "your_password",
-    "database": "",
+    "database": "patte_sardine_rencontre",
     "synchronize": false,
     "entities": ["entities/*.js"]
   }

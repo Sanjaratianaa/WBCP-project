@@ -21,7 +21,7 @@ import { StandartUserModule } from './standart-user/standart-user.module';
       username: 'your_username', // Le nom d'utilisateur de votre base de données
       password: 'your_password', // Le mot de passe de votre base de données
       database: 'patte_sardine_rencontre', // Le nom de votre base de données
-      entities: [__dirname + '/entities/*.{.ts,.js}'],
+      entities: ['src/entities/*.ts'],
       synchronize: true, // Mettez à true pour synchroniser automatiquement les entités avec la base de données (utile pour le développement)
     }),
     UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule
