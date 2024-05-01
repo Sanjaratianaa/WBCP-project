@@ -7,7 +7,7 @@
     "username": "your_username",
     "password": "your_password",
     "database": "patte_sardine_rencontre",
-    "synchronize": false,
-    "entities": ["entities/*.js"]
+    "synchronize": true,
+    "entities": ["/entities/*.js"]
   }
 ]

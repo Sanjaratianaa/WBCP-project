@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { DetailsStandart } from "./DetailsStandart";
-import { Users } from "./Users";
+import { Users } from "src/users/Users";
 
 @Index("standart_user_pkey", ["idStandartUser"], { unique: true })
 @Entity("standart_user", { schema: "public" })

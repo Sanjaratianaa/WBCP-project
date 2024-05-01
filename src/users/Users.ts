@@ -5,8 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { StandartUser } from "./StandartUser";
-
+import { StandartUser } from "src/entities/StandartUser";
 @Index("users_pkey", ["idUser"], { unique: true })
 @Index("users_user_mail_key", ["userMail"], { unique: true })
 @Entity("users", { schema: "public" })
