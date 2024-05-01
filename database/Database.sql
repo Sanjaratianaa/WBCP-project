@@ -12,8 +12,6 @@ create table users(
     sexe int not null,
 );  
 
-alter table users add column sexe int not null;
-
 create table standart(
     id_standart serial primary key,
     standart varchar(255) not null,

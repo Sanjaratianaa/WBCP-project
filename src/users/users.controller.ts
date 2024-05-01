@@ -1,6 +1,6 @@
 import { Crud, CrudController, CrudService } from '@nestjs-library/crud';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { Users } from './Users';
+import { Users } from '../entities/Users';
 import { UsersService } from './users.service';
 
 @Crud({entity: Users})
@@ -25,4 +25,35 @@ export class UsersController implements CrudController<Users>{
         console.log(id)
         return await this.userService.getUser(id)
     }
+    
+    @Post('/login')
+    async login(@Body() user: Users){
+        try{
+            return {
+                status: 200,
+                data: await this.userService.login(user)
+            };
+        }catch(e){
+            return {
+                status: 500,
+                data: e.detail
+            }
+        }
+    }
+
+    @Post('/sign')
+    async sign(@Body() user: Users){
+        try{
+            return {
+                status: 200,
+                data: await this.userService.signin(user)
+            };
+        }catch(e){
+            return {
+                status: 500,
+                data: e.detail
+            }
+        }
+    }
 }
+

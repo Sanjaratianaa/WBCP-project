@@ -1,40 +1,27 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from "typeorm";
-import { Standart } from "./Standart";
-import { StandartUser } from "./StandartUser";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
-@Index("details_standart_pkey", ["idDetailsStandart"], { unique: true })
-@Entity("details_standart", { schema: "public" })
+@Index("id_details_standart", ["idDetailsStandart"], { unique: true })
+@Entity("details_standart", { schema: "vittoria_rencontre" })
 export class DetailsStandart {
-  @PrimaryGeneratedColumn({ type: "integer", name: "id_details_standart" })
-  idDetailsStandart: number;
+  @PrimaryGeneratedColumn({
+    type: "bigint",
+    name: "id_details_standart",
+    unsigned: true,
+  })
+  idDetailsStandart: string;
 
-  @Column("integer", { name: "min", nullable: true, default: () => "0" })
+  @Column("int", { name: "id_standart", nullable: true })
+  idStandart: number | null;
+
+  @Column("int", { name: "min", nullable: true, default: () => "'0'" })
   min: number | null;
 
-  @Column("integer", { name: "max", nullable: true, default: () => "0" })
+  @Column("int", { name: "max", nullable: true, default: () => "'0'" })
   max: number | null;
 
-  @Column("integer", { name: "coefficient", nullable: true })
+  @Column("int", { name: "coefficient", nullable: true })
   coefficient: number | null;
 
-  @Column("character varying", { name: "details", length: 255 })
+  @Column("varchar", { name: "details", length: 255 })
   details: string;
-
-  @ManyToOne(() => Standart, (standart) => standart.detailsStandarts)
-  @JoinColumn([{ name: "id_standart", referencedColumnName: "idStandart" }])
-  idStandart: Standart;
-
-  @OneToMany(
-    () => StandartUser,
-    (standartUser) => standartUser.idDetailsStandart
-  )
-  standartUsers: StandartUser[];
 }

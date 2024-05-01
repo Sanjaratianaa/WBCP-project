@@ -1,33 +1,21 @@
-import {
-  Column,
-  Entity,
-  Index,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from "typeorm";
-import { DetailsStandart } from "./DetailsStandart";
-import { Users } from "src/users/Users";
+import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
 
-@Index("standart_user_pkey", ["idStandartUser"], { unique: true })
-@Entity("standart_user", { schema: "public" })
+@Index("id_standart_user", ["idStandartUser"], { unique: true })
+@Entity("standart_user", { schema: "vittoria_rencontre" })
 export class StandartUser {
-  @PrimaryGeneratedColumn({ type: "integer", name: "id_standart_user" })
-  idStandartUser: number;
+  @PrimaryGeneratedColumn({
+    type: "bigint",
+    name: "id_standart_user",
+    unsigned: true,
+  })
+  idStandartUser: string;
 
-  @Column("integer", { name: "coefficient" })
+  @Column("int", { name: "id_details_standart", nullable: true })
+  idDetailsStandart: number | null;
+
+  @Column("int", { name: "coefficient" })
   coefficient: number;
 
-  @ManyToOne(
-    () => DetailsStandart,
-    (detailsStandart) => detailsStandart.standartUsers
-  )
-  @JoinColumn([
-    { name: "id_details_standart", referencedColumnName: "idDetailsStandart" },
-  ])
-  idDetailsStandart: DetailsStandart;
-
-  @ManyToOne(() => Users, (users) => users.standartUsers)
-  @JoinColumn([{ name: "id_user", referencedColumnName: "idUser" }])
-  idUser: Users;
+  @Column("int", { name: "id_user", nullable: true })
+  idUser: number | null;
 }
