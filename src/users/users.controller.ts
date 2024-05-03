@@ -21,9 +21,19 @@ export class UsersController implements CrudController<Users>{
     }
 
     @Get("/:id")
-    async getUser(@Param("id") id: string){
+    async getUser(@Param("id") id: number){
         console.log(id)
         return await this.userService.getUser(id)
+    }
+
+    @Get("/all/:id")
+    async getAllUsers(@Param("id") id: number){
+        return await this.userService.getAllUtilisateurs(id)
+    }
+
+    @Get("/match/:id")
+    async getUsersMatch(@Param("id") id: number){
+        return await this.userService.getAllMatch(id)
     }
     
     @Post('/login')

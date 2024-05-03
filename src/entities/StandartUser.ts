@@ -1,4 +1,5 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { Users } from "./Users";
 
 @Index("id_standart_user", ["idStandartUser"], { unique: true })
 @Entity("standart_user", { schema: "vittoria_rencontre" })
@@ -8,7 +9,7 @@ export class StandartUser {
     name: "id_standart_user",
     unsigned: true,
   })
-  idStandartUser: string;
+  idStandartUser: number;
 
   @Column("int", { name: "id_details_standart", nullable: true })
   idDetailsStandart: number | null;
@@ -18,4 +19,7 @@ export class StandartUser {
 
   @Column("int", { name: "id_user", nullable: true })
   idUser: number | null;
+
+  @ManyToOne(() => Users, user => user.standartUser)
+  user: Users;
 }

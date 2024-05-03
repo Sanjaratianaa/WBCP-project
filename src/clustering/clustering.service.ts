@@ -1,8 +1,15 @@
 import { Injectable } from "@nestjs/common";
+import { UsersService } from "../users/users.service";
+import { DetailsUserService } from "../details-user/details-user.service";
+import { StandartService } from "../standart/standart.service";
 
 @Injectable()
 export class ClusteringService{
-    constructor(){}
+    constructor(
+        private readonly usersService: UsersService,
+        private readonly detailsUserService: DetailsUserService,
+        private readonly standartService: StandartService
+    ){}
 
     groupe(){
         // Importer la bibliothèque
@@ -30,4 +37,5 @@ export class ClusteringService{
         else console.log('%o', res);
         });
     }
+
 }

@@ -2,12 +2,13 @@
   {
     "name": "default",
     "type": "mysql",
-    "host": "vittoria.madagascar.webcup.hodi.host",
+    "host": "localhost",
     "port": 3306,
-    "username": "vittoria",
-    "password": "24Vittoria!",
-    "database": "vittoria_rencontra",
+    "username": "root",
+    "password": "root",
+    "database": "patte_sardine_rencontre",
     "synchronize": true,
-    "entities": ["/entities/*.js"]
+    "entities": ["/entities/*.js"],
+    "logging": true
   }
 ]

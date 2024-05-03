@@ -1,8 +1,8 @@
 import { Crud, CrudController } from '@nestjs-library/crud';
 import { Controller } from '@nestjs/common';
-import { Standart } from 'src/entities/Standart';
+import { Standart } from '../entities/Standart';
 import { StandartUserService } from './standart-user.service';
-import { StandartUser } from 'src/entities/StandartUser';
+import { StandartUser } from '../entities/StandartUser';
 
 @Crud({entity: StandartUser})
 @Controller('standart-user')

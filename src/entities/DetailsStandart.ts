@@ -1,4 +1,6 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Index, PrimaryGeneratedColumn, ManyToOne, OneToMany } from "typeorm";
+import { Standart } from "./Standart";
+import { DetailsUser } from "./DetailsUser";
 
 @Index("id_details_standart", ["idDetailsStandart"], { unique: true })
 @Entity("details_standart", { schema: "vittoria_rencontre" })
@@ -10,7 +12,7 @@ export class DetailsStandart {
   })
   idDetailsStandart: string;
 
-  @Column("int", { name: "id_standart", nullable: true })
+  @Column("bigint", { name: "id_standart", nullable: true })
   idStandart: number | null;
 
   @Column("int", { name: "min", nullable: true, default: () => "'0'" })
@@ -24,4 +26,10 @@ export class DetailsStandart {
 
   @Column("varchar", { name: "details", length: 255 })
   details: string;
+
+  @ManyToOne(() => Standart, standard => standard.detailsStandart)
+  standard: Standart;
+
+  @OneToMany(() => DetailsUser, detailsUser => detailsUser.detailsStandard)
+  detailsUser: DetailsUser[];
 }

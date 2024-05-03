@@ -16,19 +16,31 @@ import { Users } from './entities/Users';
 import { Standart } from './entities/Standart';
 import { StandartUser } from './entities/StandartUser';
 import { DetailsStandart } from './entities/DetailsStandart';
+import { DetailsUserModule } from './details-user/details-user.module';
+import { DetailsUser } from './entities/DetailsUser';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql', // Le type de votre base de données (postgres pour PostgreSQL)
-      host: 'vittoria.madagascar.webcup.hodi.host', // L'adresse de votre base de données
+      host: 'localhost', // L'adresse de votre base de données
       port: 3306, // Le port de votre base de données PostgreSQL par défaut est 5432
-      username: 'vittoria', // Le nom d'utilisateur de votre base de données
-      password: '24Vittoria!', // Le mot de passe de votre base de données
-      database: 'vittoria_rencontre', // Le nom de votre base de données
-      entities: [Users, Standart, StandartUser, DetailsStandart],
+      username: 'root', // Le nom d'utilisateur de votre base de données
+      password: 'root', // Le mot de passe de votre base de données
+      database: 'patte_sardine_rencontre', // Le nom de votre base de données
+      entities: [Users, Standart, StandartUser, DetailsStandart, DetailsUser],
       synchronize: true, // Mettez à true pour synchroniser automatiquement les entités avec la base de données (utile pour le développement)
+      logging: true,
+      // type: 'mysql', // Le type de votre base de données (postgres pour PostgreSQL)
+      // host: 'vittoria.madagascar.webcup.hodi.host', // L'adresse de votre base de données
+      // port: 3306, // Le port de votre base de données PostgreSQL par défaut est 5432
+      // username: 'vittoria', // Le nom d'utilisateur de votre base de données
+      // password: '24Vittoria!', // Le mot de passe de votre base de données
+      // database: 'vittoria_rencontre', // Le nom de votre base de données
+      // entities: [Users, Standart, StandartUser, DetailsStandart, DetailsUser],
+      // synchronize: true, // Mettez à true pour synchroniser automatiquement les entités avec la base de données (utile pour le développement)
+    
     }),
-    UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule
+    UploaderModule, ReplicateModule, BrainShopModule, StandartModule, UsersModule, DetailsStandartModule, StandartUserModule, DetailsUserModule
   ],
   controllers: [AppController, ],
   providers: [AppService, HandlerGateWay, ],
