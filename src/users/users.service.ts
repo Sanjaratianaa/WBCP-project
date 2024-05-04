@@ -6,6 +6,7 @@ import { Repository, Not } from 'typeorm';
 import { StandartUser } from '../entities/StandartUser';
 import { Standart } from '../entities/Standart';
 import { StandartService } from '../standart/standart.service';
+import { getConnection } from 'typeorm';
 
 @Injectable()
 export class UsersService extends CrudService<Users>{
@@ -38,6 +39,14 @@ export class UsersService extends CrudService<Users>{
         )
         .where('detailsUser.idUser = :idUser', { idUser: idUser })
         .getOne();
+    }
+
+    
+    async getTestView() {
+        console.log("UN?");
+        const connection = getConnection(); // Obtenez la connexion à la base de données
+        const results = await connection.query('SELECT * FROM test_user'); // Exécutez la requête SQL brute
+        return results;
     }
 
     async getAllUtilisateurs(userId: number): Promise<Users[]> {

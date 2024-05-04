@@ -35,6 +35,12 @@ export class UsersController implements CrudController<Users>{
     async getUsersMatch(@Param("id") id: number){
         return await this.userService.getAllMatch(id)
     }
+
+    @Get("/test/test_view")
+    async getTest(){
+        console.log("no noooo")
+        return await this.userService.getTestView()
+    }
     
     @Post('/login')
     async login(@Body() user: Users){

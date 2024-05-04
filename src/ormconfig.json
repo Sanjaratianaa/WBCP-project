@@ -8,7 +8,7 @@
     "password": "root",
     "database": "patte_sardine_rencontre",
     "synchronize": true,
-    "entities": ["/entities/*.js"],
+    "entities": ["src/entities/*.ts"],
     "logging": true
   }
 ]
